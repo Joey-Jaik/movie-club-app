@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Club — Watched</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <nav>
+        <a href="watched.html" class="nav-brand">
+            <img src="images/logo.png" alt="Movie Club" class="nav-logo">
+            MOVIE CLUB
+        </a>
+        <ul class="nav-links">
+            <li><a href="watched.html" class="active">Watched</a></li>
+            <li><a href="rankings.html">Rankings</a></li>
+            <li><a href="next-movie.html">Next Movie</a></li>
+        </ul>
+        <div class="nav-right">
+            <div class="nav-user">Signed in as <span id="nav-username"></span></div>
+            <button class="btn-secondary" onclick="openPinModal()" 
+                    style="font-size: 0.75rem; padding: 0.35rem 0.75rem;">
+                Change PIN
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <div class="page-header">
+            <h1>Watched Movies</h1>
+            <p>All the movies we've watched together</p>
+        </div>
+
+        <div id="movies-container" class="movie-grid">
+            <div class="empty-state">
+                <p>Loading movies...</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Rating Modal -->
+    <div id="rating-modal" class="modal-overlay hidden">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3 id="modal-movie-title">Rate Movie</h3>
+                <button class="modal-close" onclick="closeRatingModal()">✕</button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-subtitle">Enter your rating from 0 to 10</p>
+                <input type="number" id="modal-rating-input" 
+                    min="0" max="10" step="0.1" 
+                    placeholder="e.g. 8.5">
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeRatingModal()">Cancel</button>
+                <button class="btn-primary" onclick="confirmRating()" style="width: auto; padding: 0.75rem 2rem;">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Change PIN Modal -->
+    <div id="pin-modal" class="modal-overlay hidden">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3>Change PIN</h3>
+                <button class="modal-close" onclick="closePinModal()">✕</button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-subtitle">Enter a new numeric PIN (minimum 4 digits)</p>
+                <input type="password" id="new-pin-input"
+                    inputmode="numeric"
+                    maxlength="10"
+                    placeholder="New PIN">
+                <input type="password" id="confirm-pin-input"
+                    inputmode="numeric"
+                    maxlength="10"
+                    placeholder="Confirm PIN"
+                    style="margin-top: 0.75rem;">
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closePinModal()">Cancel</button>
+                <button class="btn-primary" onclick="submitPinChange()" 
+                        style="width: auto; padding: 0.75rem 2rem;">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/watched.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Club — Next Movie</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <nav>
+        <a href="watched.html" class="nav-brand">
+            <img src="images/logo.png" alt="Movie Club" class="nav-logo">
+            MOVIE CLUB
+        </a>
+        <ul class="nav-links">
+            <li><a href="watched.html">Watched</a></li>
+            <li><a href="rankings.html">Rankings</a></li>
+            <li><a href="next-movie.html" class="active">Next Movie</a></li>
+        </ul>
+        <div class="nav-right">
+            <div class="nav-user">Signed in as <span id="nav-username"></span></div>
+            <button class="btn-secondary" onclick="openPinModal()" 
+                    style="font-size: 0.75rem; padding: 0.35rem 0.75rem;">
+                Change PIN
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <div class="page-header">
+            <h1>Next Movie</h1>
+            <p>Suggest and vote on the next movie to watch</p>
+        </div>
+
+        <!-- whose pick it is -->
+        <div class="next-picker" id="picker-info">
+            <h2>This month's pick</h2>
+            <div class="picker-name" id="picker-name">Loading...</div>
+        </div>
+
+        <!-- movie night date - only shown to current picker -->
+        <div id="movie-night-section" class="hidden" style="margin-bottom: 1.5rem;">
+            <div class="card">
+                <label style="display: block; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">
+                    Set Next Movie Night Date
+                </label>
+                <div style="display: flex; gap: 0.75rem; align-items: center;">
+                    <input type="date" id="movie-night-input" 
+                        style="flex: 1; padding: 0.75rem; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); font-size: 0.9rem; outline: none;">
+                    <button class="btn-primary" style="width: auto; padding: 0.75rem 1.5rem;"
+                            onclick="updateMovieNight()">
+                        Save
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- TMDB search — only shown to current picker -->
+        <div id="search-section" class="hidden">
+            <div class="search-container">
+                <input type="text" id="movie-search" 
+                       placeholder="Search for a movie to suggest...">
+                <div id="search-results" class="search-results hidden"></div>
+            </div>
+        </div>
+
+        <!-- suggestions list -->
+        <div id="suggestions-container">
+            <div class="empty-state">
+                <p>Loading suggestions...</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Change PIN Modal -->
+    <div id="pin-modal" class="modal-overlay hidden">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3>Change PIN</h3>
+                <button class="modal-close" onclick="closePinModal()">✕</button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-subtitle">Enter a new numeric PIN (minimum 4 digits)</p>
+                <input type="password" id="new-pin-input"
+                    inputmode="numeric"
+                    maxlength="10"
+                    placeholder="New PIN">
+                <input type="password" id="confirm-pin-input"
+                    inputmode="numeric"
+                    maxlength="10"
+                    placeholder="Confirm PIN"
+                    style="margin-top: 0.75rem;">
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closePinModal()">Cancel</button>
+                <button class="btn-primary" onclick="submitPinChange()" 
+                        style="width: auto; padding: 0.75rem 2rem;">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/next-movie.js"></script>
+</body>
+</html>

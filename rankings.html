@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Club — Rankings</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <nav>
+        <a href="watched.html" class="nav-brand">
+            <img src="images/logo.png" alt="Movie Club" class="nav-logo">
+            MOVIE CLUB
+        </a>
+        <ul class="nav-links">
+            <li><a href="watched.html">Watched</a></li>
+            <li><a href="rankings.html" class="active">Rankings</a></li>
+            <li><a href="next-movie.html">Next Movie</a></li>
+        </ul>
+        <div class="nav-right">
+            <div class="nav-user">Signed in as <span id="nav-username"></span></div>
+            <button class="btn-secondary" onclick="openPinModal()" 
+                    style="font-size: 0.75rem; padding: 0.35rem 0.75rem;">
+                Change PIN
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <div class="page-header">
+            <h1>Rankings</h1>
+            <p>Movies ranked by aggregate rating</p>
+        </div>
+
+        <div id="rankings-container" class="rankings-list">
+            <div class="empty-state">
+                <p>Loading rankings...</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Change PIN Modal -->
+    <div id="pin-modal" class="modal-overlay hidden">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3>Change PIN</h3>
+                <button class="modal-close" onclick="closePinModal()">✕</button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-subtitle">Enter a new numeric PIN (minimum 4 digits)</p>
+                <input type="password" id="new-pin-input"
+                    inputmode="numeric"
+                    maxlength="10"
+                    placeholder="New PIN">
+                <input type="password" id="confirm-pin-input"
+                    inputmode="numeric"
+                    maxlength="10"
+                    placeholder="Confirm PIN"
+                    style="margin-top: 0.75rem;">
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closePinModal()">Cancel</button>
+                <button class="btn-primary" onclick="submitPinChange()" 
+                        style="width: auto; padding: 0.75rem 2rem;">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/rankings.js"></script>
+</body>
+</html>
