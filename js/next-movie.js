@@ -1,5 +1,5 @@
-//const API_URL = 'http://localhost:8080';
-const TMDB_API_KEY = CONFIG.TMDB_API_KEY;
+// TMDB API key - low risk public key for movie search only
+const TMDB_API_KEY = 'your_actual_key_here';
 const TMDB_BASE = 'https://api.themoviedb.org/3';
 
 const user = JSON.parse(sessionStorage.getItem('user'));
