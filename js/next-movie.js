@@ -1,5 +1,5 @@
 // TMDB API key - low risk public key for movie search only
-const TMDB_API_KEY = 'your_actual_key_here';
+const TMDB_API_KEY = 'c45a8ae27aaf47c1a4b7a2ae8b2dced6';
 const TMDB_BASE = 'https://api.themoviedb.org/3';
 
 const user = JSON.parse(sessionStorage.getItem('user'));
