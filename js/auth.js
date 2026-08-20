@@ -1,3 +1,11 @@
+// =============================================================================
+// Author:  Joey Jaikaran
+// Date:    August 20, 2026
+// Purpose: Handles user authentication for the Movie Club app. Validates the
+//          login form, sends credentials to the backend API, stores the logged
+//          in user in sessionStorage on success, and redirects to the watched
+//          movies page. Also handles Enter key submission on the PIN input.
+// =============================================================================
 
 document.getElementById('login-btn').addEventListener('click', async () => {
     const username = document.getElementById('username').value;

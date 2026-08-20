@@ -1,3 +1,12 @@
+// =============================================================================
+// Author:  Joey Jaikaran
+// Date:    August 20, 2026
+// Purpose: Handles the watched movies page of the Movie Club app. Fetches all
+//          watched movies and their ratings from the backend, builds and renders
+//          movie cards with aggregate and individual member ratings, and handles
+//          the rating modal for submitting and editing ratings. Also handles
+//          movie deletion for admin users.
+// =============================================================================
 
 // check user is logged in, and if not then redirect to index page, parse the JSON string stored in session storage into a javascript object
 const user = JSON.parse(sessionStorage.getItem('user'));

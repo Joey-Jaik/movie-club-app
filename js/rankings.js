@@ -1,4 +1,11 @@
-//const API_URL = 'http://localhost:8080';
+// =============================================================================
+// Author:  Joey Jaikaran
+// Date:    August 20, 2026
+// Purpose: Handles the rankings page of the Movie Club app. Fetches all rated
+//          movies from the backend and displays them sorted by aggregate rating
+//          from highest to lowest. Also calculates and displays member rankings
+//          based on the average aggregate rating of each member's movie picks.
+// =============================================================================
 
 const user = JSON.parse(sessionStorage.getItem('user'));
 if (!user) window.location.href = 'index.html';

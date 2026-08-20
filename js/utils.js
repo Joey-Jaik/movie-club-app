@@ -1,3 +1,12 @@
+// =============================================================================
+// Author:  Joey Jaikaran
+// Date:    August 20, 2026
+// Purpose: Shared utility functions used across all pages of the Movie Club
+//          app. Loads and displays the movie night countdown banner in the
+//          nav on every page, and provides the change PIN modal functions
+//          including open, close, and submit with validation.
+// =============================================================================
+
 const API_URL = 'https://movie-club-backend.onrender.com';
 
 async function loadMovieNightBanner() {

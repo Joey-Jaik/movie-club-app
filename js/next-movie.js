@@ -1,3 +1,16 @@
+// =============================================================================
+// Author:  Joey Jaikaran
+// Date:    August 20, 2026
+// Purpose: Handles the next movie page of the Movie Club app. Determines the
+//          current picker from the database and displays their name. Shows a
+//          TMDB movie search bar to the current picker so they can add up to
+//          three suggestions. Displays all current suggestions with seen it
+//          voting counts, and allows the current picker to mark a movie as
+//          watched or delete a suggestion. Marking as watched moves the movie
+//          to the watched list, clears all suggestions, and advances the pick
+//          order to the next member.
+// =============================================================================
+
 // TMDB API key - low risk public key for movie search only
 const TMDB_API_KEY = 'c45a8ae27aaf47c1a4b7a2ae8b2dced6';
 const TMDB_BASE = 'https://api.themoviedb.org/3';
