@@ -11,6 +11,7 @@ document.getElementById('login-btn').addEventListener('click', async () => {
     const username = document.getElementById('username').value;
     const pin = document.getElementById('pin').value;
     const errorMsg = document.getElementById('error-msg');
+    const loadingScreen = document.getElementById('loading-screen');
 
     errorMsg.classList.add('hidden');
 
@@ -24,6 +25,9 @@ document.getElementById('login-btn').addEventListener('click', async () => {
         showError('Please enter your pin');
         return;
     }
+
+     // show loading screen while server wakes up
+    loadingScreen.classList.remove('hidden');
 
     try {
         //use await so page doesnt freeze during fetch request, webpage is free to perform other tasks, it also ensures that the code doesn't continue running until the promise is resolved, so when we get to data response continues to result of the fetch request
@@ -40,6 +44,7 @@ document.getElementById('login-btn').addEventListener('click', async () => {
 
         // safety check
         if (!response.ok) {
+            loadingScreen.classList.add('hidden');
             showError(data.error || 'Login failed');
             return;
         }
@@ -49,6 +54,7 @@ document.getElementById('login-btn').addEventListener('click', async () => {
         window.location.href = 'watched.html';
     }
     catch (error) {
+        loadingScreen.classList.add('hidden');
         showError('Could not connect to server');
     }
 });
